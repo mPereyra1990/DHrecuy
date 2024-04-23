@@ -1,0 +1,99 @@
+<html lang="en">
+
+<!-- include head -->
+<%- include('../partials/head') %>
+<script src="/js/userValidations.js"></script>
+
+<body>
+    <!-- include header -->
+    <%- include('../partials/header') %>
+   
+    <main class="mainlogin">
+        <p class="rutahome"><a href="/users/<%= user.id %>/profile">Perfil</a> / Edición</p>
+        <form action="/users/<%= infoUser.id %>?_method=PUT" method="POST" id="formEdicion" class="editUser" enctype="multipart/form-data">
+            <label for="nombre">Nombre</label> 
+            <input type="text" name="nombre" id="nombre" value="<%= locals.oldData ? oldData.nombre : infoUser.nombre%>" 
+            class="<%= (locals.errors && errors.nombre) ? 'is-invalid' : null %>">
+            <small id="nameError"></small> 
+            <% if (locals.errors && errors.nombre) { %>
+                <p class="error"> <%= errors.nombre.msg %></p>
+            <% } %>
+            <br>
+            <label for="apellido">Apellido</label> 
+            <input type="text" name="apellido" id="apellido" value="<%= locals.oldData ? oldData.apellido : infoUser.apellido %>" class="<%= (locals.errors && errors.apellido) ? 'is-invalid' : null %>">
+            <small id="apellidoError"></small>
+            <% if (locals.errors && errors.apellido) { %>
+                <p class="error"> <%= errors.apellido.msg %></p>
+            <% } %>       
+            <br>
+            <label for="email">Email</label> 
+            <input type="email" name="email" id="email" value="<%= locals.oldData ? oldData.email : infoUser.email %>" class="<%= (locals.errors && errors.email) ? 'is-invalid' : null %>">
+            <small id="emailError"></small>
+            <% if (locals.errors && errors.email) { %>
+                <p class="error"> <%= errors.email.msg %></p>
+            <% } %> 
+            <br>
+            <label for="dir">Dirección</label> 
+            <input type="text" name="dir" id="dir" value="<%= locals.oldData ? oldData.dir : infoUser.direccion %>" class="<%= (locals.errors && errors.dir) ? 'is-invalid' : null %>">
+            <small id="dirError"></small>
+            <% if (locals.errors && errors.dir) { %>
+                <p class="error"> <%= errors.dir.msg %></p>
+            <% } %> 
+            <br>
+            <label for="telefono">Teléfono</label> 
+            <input type="number" name="telefono" id="telefono" value="<%= locals.oldData ? oldData.telefono : infoUser.telefono %>" class="<%= (locals.errors && errors.telefono) ? 'is-invalid' : null %>">
+            <small id="telError"></small>
+            <% if (locals.errors && errors.telefono) { %>
+                <p class="error"> <%= errors.telefono.msg %></p>
+            <% } %> 
+            <br>        
+            <label for="contrasenia">Contraseña</label> 
+            <input type="password" placeholder="Ingresar contraseña si desea cambiarla" name="contrasenia" id="contrasenia" class="<%= (locals.errors && errors.contrasenia) ? 'is-invalid' : null %>">
+            <small id="passError"></small>          
+            <% if (locals.errors && errors.contrasenia) { %>
+                <p class="error"> <%= errors.contrasenia.msg %></p>
+            <% } %> 
+            <br>
+            <label for="confirmar">Confirmar contraseña</label> 
+            <input type="password" placeholder="Confirmar si cambió su contraseña" name="confirmar" id="confirmar" class="<%= (locals.errors && errors.confirmar) ? 'is-invalid' : null %>">
+            <% if (locals.errors && errors.confirmar) { %>
+                <p class="error"> <%= errors.confirmar.msg %></p>
+            <% } %>         
+            <br>
+            <label for="foto">Imagen</label>
+            <img src="/images/usuarios/<%= locals.oldData ? imagen : infoUser.imagen%>" class="actualImg" alt="Imagen Actual" name="fotoAnt">
+            <input type="text" name="imageAnt" id="imageAnt" value="<%= locals.oldData ? imagen : infoUser.imagen%>" hidden>            
+            <br>
+            <input class="userInfo" type="file" id="foto" name="foto" accept="image/*" value="<%= locals.oldData ? oldData.imagen : infoUser.imagen%>" class="<%= (locals.errors && errors.foto) ? 'is-invalid' : null %>">
+            <% if (locals.errors && errors.foto) { %>
+                <p class="error"> <%= errors.foto.msg %></p>
+            <% } %> <br>
+            <% if(locals.user && user.id_categoria == 1) {%>
+                <label for="categoria">Categoria:</label>
+                <select class="userInfo" id="categoria" name="categoria">
+                    <option value=1 <% if (infoUser.id_categoria === 1) { %> selected <% } %>>Administrador</option>
+                    <option value=2 <% if (infoUser.id_categoria === 2) { %> selected <% } %>>Cliente</option>
+                </select>
+            <% } else {%>
+                <input type="text" name="categoria" id="categoria" value=<%=infoUser.id_categoria %> hidden>
+            <% } %>
+           
+            <% if(locals.user && user.id_categoria == 1) {%><br>
+                <label for="activo">Estado de Usuario:</label>
+                <select class="userInfo" id="activo" name="activo">
+                    <option value=1 <% if (infoUser.activo == true) { %> selected <% } %>>Activo</option>
+                    <option value=0 <% if (infoUser.activo == false) { %> selected <% } %>>Inactivo</option>
+                </select><br>
+            <% } else {%>
+                <input type="text" name="activo" id="activo" value=<%=infoUser.activo %> hidden>
+            <% } %>                        
+            <button type="submit">GUARDAR CAMBIOS</button>
+                        
+            </form>
+    </main>
+
+    <!-- include footer -->
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- include head -->
+<%- include('../partials/head') %>
+<script src="/js/userValidations.js"></script>
+
+<body>
+    <!-- include header -->
+    <%- include('../partials/header') %>
+   
+    <main class="mainlogin">
+        <p class="rutahome"><a href="/">Home</a> / Registro</p>
+        <form action="/users" method="POST" id="formRegistro" enctype="multipart/form-data">
+            <label for="nombre">Nombre</label> 
+            <input type="text" name="nombre" id="nombre" placeholder="El nombre debe contener al menos 2 caracteres" value="<%= locals.oldData ? oldData.nombre : null %>" class="<%= (locals.errors && errors.nombre) ? 'is-invalid' : null %>">  
+            <small id="nameError"></small>        
+            <%if (locals.errors && errors.nombre) { %>
+                <p id="error" class="error"> <%= errors.nombre.msg %></p>
+            <% } %>
+            <br>
+            <label for="apellido">Apellido</label> 
+            <input type="text" name="apellido" id="apellido" placeholder="El apellido debe contener al menos 2 caracteres" value="<%= locals.oldData ? oldData.apellido : null %>" class="<%= (locals.errors && errors.apellido) ? 'is-invalid' : null %>"> 
+            <small id="apellidoError"></small>           
+            <% if (locals.errors && errors.apellido) { %>
+                <p class="error"> <%= errors.apellido.msg %></p>
+            <% } %>       
+            <br>
+            <label for="email">Email</label> 
+            <input type="email" name="email" id="email" placeholder="El email debe tener un formato válido" value="<%= locals.oldData ? oldData.email : null %>" class="<%= (locals.errors && errors.email) ? 'is-invalid' : null %>">  
+            <small id="emailError"></small>          
+            <% if (locals.errors && errors.email) { %>
+                <p class="error"> <%= errors.email.msg %></p>
+            <% } %> 
+            <br>
+            <label for="dir">Dirección</label> 
+            <input type="text" name="dir" id="dir" value="<%= locals.oldData ? oldData.dir : null %>" class="<%= (locals.errors && errors.dir) ? 'is-invalid' : null %>">    
+            <small id="dirError"></small>        
+            <% if (locals.errors && errors.dir) { %>
+                <p class="error"> <%= errors.dir.msg %></p>
+            <% } %> 
+            <br>
+            <label for="telefono">Teléfono</label> 
+            <input type="number" placeholder="Ej.:3854808080" name="telefono" id="telefono" value="<%= locals.oldData ? oldData.telefono : null %>" class="<%= (locals.errors && errors.telefono) ? 'is-invalid' : null %>">  
+            <small id="telError"></small>         
+            <% if (locals.errors && errors.telefono) { %>
+                <p class="error"> <%= errors.telefono.msg %></p>
+            <% } %> 
+            <br>             
+            <label for="contrasenia">Contraseña</label> 
+            <input type="password" name="contrasenia" placeholder="Debe contener al menos 8 caracteres: una letra mayúscula, una minúscula, un número y un caracter especial" id="contrasenia" class="<%= (locals.errors && errors.contrasenia) ? 'is-invalid' : null %>" >    
+            <small id="passError"></small>                     
+            <% if (locals.errors && errors.contrasenia) { %>
+                <p class="error"> <%= errors.contrasenia.msg %></p>
+            <% } %> 
+            <br>
+            <label for="confirmar">Confirmar contraseña</label>  
+            <input type="password" name="confirmar" id="confirmar" class="<%= (locals.errors && errors.confirmar) ? 'is-invalid' : null %>">            
+            <% if (locals.errors && errors.confirmar) { %>
+                <p class="error"> <%= errors.confirmar.msg %></p>
+            <% } %>         
+            <br>
+            <label for="foto">Imagen</label>
+            <input class="userInfo" type="file" id="foto" name="foto" accept="image/*" value="<%= locals.oldData ? oldData.imagen : null %>" class="<%= (locals.errors && errors.foto) ? 'is-invalid' : null %>">            
+            <% if (locals.errors && errors.foto) { %>
+                <p class="error"> <%= errors.foto.msg %></p>
+            <% } %> <br>
+            <input type="text" name="categoria" id="categoria" value=2 class="oculto">
+            <input type="number" name="activo" id="activo" value=1 class="oculto">                            
+            <button type="submit">REGISTRARME</button>
+            <br>
+           
+    </main>
+     <!-- include footer -->
+     <%- include('../partials/footer') %>
+
+</body>
+
+</html>

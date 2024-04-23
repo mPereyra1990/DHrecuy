@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- include head -->
+<%- include('../partials/head') %>
+
+<body>
+    <!-- include header -->
+    <%- include('../partials/header') %>
+   
+    <main>
+        <section>
+            <h2 class="centerDelete"> Sr./a <%= user.nombre %> <%= user.apellido %> </h2>
+            <% if(locals.user && user.categoria == 2) {%>
+                <h2 class="centerDelete"> ¿Está seguro/a de eliminar esta cuenta? </h2>
+            <% } else {%>
+                <h2 class="centerDelete"> ¿Está seguro/a de eliminar la cuenta de: <%= userToDelete.email %> ? </h2>
+            <% } %>                
+            <br>
+            <br>
+            <% if(locals.user && user.id_categoria == 2) {%>
+                <div id="form-buttons"> 
+                    <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="">ELIMINAR CUENTA</button>
+                    </form>
+                    <a href="/users/<%= user.id %>/profile" class=""><button type="button" class="">CANCELAR</button></a>
+                </div>  
+            <% } else { %>    
+                <div id="form-buttons"> 
+                    <form action="/users/<%= userToDelete.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="">ELIMINAR CUENTA</button>
+                    </form> 
+                    <a href="/users/list" class=""><button type="button" class="">CANCELAR</button></a>
+                </div> 
+            <% } %>   
+                   
+        </section>
+
+        <p></p>
+        <p></p>
+        <p></p>
+    </main>
+     <!-- include footer -->
+     <%- include('../partials/footer') %>
+
+</body>
+
+</html>

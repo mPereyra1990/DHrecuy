@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- include head -->
+<%- include("../partials/head.ejs") %>
+
+<body>
+    <!-- include header -->
+    <%- include('../partials/header') %>
+
+    <main class="mainusuario">
+        <div class="cabezausuario">
+            <img src= "/images/usuarios/<%= user && user.imagen %>" margin-top="15px" height="80px" width="80px">
+        <div class="identidad">
+            <p class="nombre"> <%= user && user.nombre %> <%=user && user.apellido  %> </p>
+            <p class="correo"> <%= user && user.email  %> </p>
+            <% if (locals.adminError) { %>
+                <p class="msjError"> NO TIENES PERMISOS DE ADMINISTRADOR </p>
+            <% } %>
+        </div>
+        </div>
+        <br>
+        <div id="form-buttons">  
+            <a href="/users/<%= user.id %>/edition" class=""><button type="button" class="">EDITAR PERFIL</button></a>
+            <a href="/users/<%= user.id %>/deletion" class=""><button type="button" class="">ELIMINAR PERFIL</button></a>
+        </div>
+        <div class="sesiones">
+            <p class="sesion"><i class="fa-solid fa-right-from-bracket"></i> <a href="/users/logout">Cerrar sesión</a> </p>
+        </div>
+
+        
+        
+        
+    </main>
+
+    <!-- include footer -->
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

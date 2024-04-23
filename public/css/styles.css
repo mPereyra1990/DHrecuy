@@ -1,0 +1,586 @@
+@font-face {
+  font-family: "fuenteAvenir";
+  src: url("/fonts/AVENIR.TTC");
+  src: url("/fonts/AvenirBlack.ttf");
+  src: url("/fonts/AvenirBook.ttf");
+  src: url("/fonts/AvenirHeavy.ttf");
+  src: url("/fonts/AvenirLight.ttf");
+  src: url("/fonts/AvenirRegular.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+body {
+  font-family: "fuenteAvenir";
+  margin: 0px;
+}
+
+.error {
+  color: red;
+  margin-top: 2px;
+}
+
+header,
+footer {
+  padding: 10px;
+  background-color: rgb(92, 162, 236);
+}
+
+main {
+  background-color: rgb(173, 213, 231);
+}
+
+nav {
+  display: none;
+}
+
+.header-inicial {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.header-inicial a {
+  color: black;
+  text-align: center;
+}
+
+.header-inicial a:hover {
+  color: #fbdd5bff;
+}
+
+.logo {
+  width: 25%;
+}
+
+#iconos-header{
+  display: flex;
+  justify-content: center;
+}
+
+i {
+  font-size: 20px;
+}
+
+.burger-menu {
+  font-size: 20px;
+}
+
+.searchbox,
+.searchboxTablet {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbox input {
+  width: 100%;
+  border: none;
+}
+
+.searchbox form {
+  display: flex;
+  flex-grow: 0.9;
+}
+
+#busqueda {
+  background-color: #ebebeb;
+  padding: 4px;
+}
+
+.mobileheader {
+  width: 25%;
+}
+
+#iconoUser {
+  margin-right: 10px;
+}
+
+.profilenamediv {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.profilewelcome {
+  font-size: 12px;
+  width: 90%;
+  margin-right: 5px;
+  margin-bottom: 0px;
+}
+
+.profilename {
+  font-size: 12px;
+  width: 100%;
+  margin-top: 0px;
+}
+
+
+.header-login-register a:hover{
+  color: #fbdd5bff;
+}
+
+.search-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0px;
+}
+
+.subrayado{
+  text-decoration: underline;
+}
+
+
+
+
+
+/* CLASES FOOTER*/
+.seccionesFooter {
+  text-align: center;
+}
+
+
+
+.formFooter {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.formFooter form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formFooter form input {
+  border: none;
+  padding: 6px;
+}
+
+#listadoFooter ul {
+  width: 60%;
+  text-align: left;
+  margin: auto;
+}
+
+#listadoFooter ul li {
+  padding-bottom: 5px;
+}
+
+#listadoFooter ul li a {
+  color: black;
+}
+
+#listadoFooter ul li a:hover {
+  color: #fbdd5bff;
+}
+
+.negrita {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+.header-tablet {
+  display: none;
+}
+
+.logoFooter {
+  width: 20%;
+}
+
+
+/* Estilos para el main menu usuario mobile */
+
+.cabezausuario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.cabezausuario img {
+  margin-right: 20px;
+  padding: 4px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
+.cabezausuario .nombre {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.cabezausuario .correo {
+  font-size: 12px;
+  margin-top: 0;
+}
+
+.perfil , .actividad , .configuracion , .sesiones {
+  width: 90%;
+  margin: auto;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+
+.perfil p , .actividad p , .configuracion p {
+  margin: 2px;
+  padding-bottom: 5px;
+}
+
+.perfil .opciones , .actividad .historial , .configuracion .config, .sesiones {
+  border-bottom: 1px lightgray solid;
+  color: black;
+}
+
+
+.perfil a, .opciones a, .actividad .historial a, .configuracion a, .config a, .sesiones a, .sesion a, .product a, .product-nonActive a{ 
+  color: black;
+  text-decoration: none;
+}
+
+.perfil a:hover, .product a:hover, .product-nonActive a:hover, .opciones a:hover, .actividad a:hover, .historial a:hover , .configuracion a:hover, .config a:hover, .sesiones a:hover{
+  color: #18c1d8ff;
+  text-decoration: underline;
+}
+
+
+.mainusuario i {
+  color: rgb(92, 162, 236);
+  text-decoration: solid;
+}
+
+/* FIN Estilos para el main menu usuario mobile*/
+
+/* Estilos para el main login mobile */
+
+.mainlogin {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.rutahome {
+  padding-left: 15px;
+}
+
+.rutahome a{
+  color: black;
+}
+
+.rutahome a:hover {
+  color: #18c1d8ff;
+  text-decoration: underline;
+}
+
+.mainlogin form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  align-items: center;
+}
+
+.mainlogin input {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+}
+
+
+
+
+.mainlogin button {
+  background-color: rgb(92, 162, 236);
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px black solid;
+  font-size: 15px;
+  font-weight: bold;
+  width: 200px;
+}
+
+.mainlogin button:hover {
+  background-color: #fbdd5bff;
+  text-decoration: none;
+}
+
+button a {
+  color: black;
+  text-decoration: none;
+}
+
+.opcionrecordarme {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.opcionrecordarme input {
+  width: 20px;
+  height: 20px;
+}
+
+.notenescuenta {
+  text-align: center;
+}
+
+.notenescuenta a {
+  color: black;
+}
+
+.notenescuenta a:hover {
+  color: #18c1d8ff;
+  text-decoration: underline;
+}
+
+#formRegistro, #formEdicion {
+  background-color: #18ead8;
+  padding: 20px 30px;
+  width: 80%;
+}
+
+.VALIDACION img {
+  width:200px ;
+}
+
+/* Estilos para el main menu usuario mobile */
+
+.cabezausuario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.cabezausuario img {
+  margin-right: 20px;
+  padding: 4px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
+.cabezausuario .nombre {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.cabezausuario .correo {
+  font-size: 12px;
+  margin-top: 0;
+}
+
+.perfil , .actividad , .configuracion , .sesiones {
+  width: 90%;
+  margin: auto;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+
+.perfil p , .actividad p , .configuracion p {
+  margin: 2px;
+  padding-bottom: 5px;
+}
+
+.perfil .opciones , .actividad .historial , .configuracion .config {
+  border-bottom: 1px lightgray solid;
+}
+
+.mainusuario i {
+  color: rgb(92, 162, 236);
+  text-decoration: solid;
+}
+
+@media (min-width: 361px) {
+  .tituloProductosDestacados {
+    font-size: 25px;
+  }
+
+  .seccionesFooter {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    font-size: 14px;
+  }
+  
+  .formFooter {
+    display: block;
+    padding-top: 10px;
+  }
+
+  .negrita {
+    text-align: left;
+    margin-left: 20%;
+    font-size: 15px;
+  }
+
+  #sobre {
+    font-size: 13px;
+  }
+
+  .categorias{
+    flex-direction: row;
+  }
+  
+  .marcas img{
+    width: 50%;
+    flex-basis: 50%;
+  }
+
+  .categorias div {
+    width: 50%;
+  }
+
+  .categorias img{
+    width: 90%;
+    margin: 10px;
+    box-sizing: border-box;
+  }
+
+ 
+  
+} 
+
+
+@media (min-width: 768px) {
+  header {
+    padding: 0px;
+  }
+
+  .searchboxTablet form {
+    display: flex;
+    flex-grow: 0.9;
+  }
+
+  .header-inicial,
+  .searchbox {
+    display: none;
+  }
+
+  .logo {
+    width: 100%;
+    box-sizing: border-box;
+    margin-right: 15px;
+  }
+
+  .header-tablet {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-tablet a{
+    width: 10%;
+    padding: 0px 10px;
+  }
+
+  nav {
+    display: flex;
+  }
+
+  .box-header-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+  }
+
+  
+  
+  .header-login-register a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .header-login-register #registerButton {
+    padding-right: 8px;
+    border-right: solid 2px black;
+  }
+
+  .header-login-register #loginButton {
+    padding-left: 8px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: black;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-bottom: 1px solid gray;
+  }
+
+  nav ul {
+    display: flex;
+  }
+
+  nav ul li {
+    padding: 0 20px;
+    list-style: none;
+    font-weight: bold;
+  }
+
+  nav ul li a:hover{
+   
+    color: #18c1d8ff;
+  }
+
+  .logoFooter {
+    width: 20%;
+  }
+
+  .categorias {
+    margin-top: 20px;
+  }
+
+  .categorias div{
+    flex-basis: 50%;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .categorias img{
+    width: 80%;
+  }
+
+  article{
+    flex-basis: 22%;
+  }
+
+  
+  
+  /* Estilos para el main login tablet */
+   .mainlogin form {
+    width: 460px;
+  }
+
+  #formRegistro, #formEdicion {
+    width: 60%;
+  } 
+
+/* ESTILOS REGISTER */
+
+.oculto {
+  display: none;
+}
+}

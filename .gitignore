@@ -1,0 +1,16 @@
+**/*/node_modules
+**/*/lib
+**/*/coverage
+node_modules/
+package-lock.json
+**/*.log
+firebase-debug.log
+npm-debug.log
+.gradle/
+.firebase/
+scripts/backup-restore/data/
+.firebase/hosting.cHVibGlj.cache
+tslint-html-report/
+**/*/data-backup
+**/.DS_Store
+.env

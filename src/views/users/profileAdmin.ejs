@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- include head -->
+<%- include("../partials/head.ejs") %>
+<script src="/js/profile.js"></script>
+<body>
+    <!-- include header -->
+    <%- include('../partials/header') %>
+
+    <main class="mainusuario">
+        <div class="cabezausuario">
+            <img src= "/images/usuarios/<%= user && user.imagen %>" margin-top="15px" height="80px" width="80px">
+        <div class="identidad">
+            <p class="nombre"> <%= user && user.nombre %> <%=user && user.apellido  %> </p>
+            <p class="correo"> <%= user && user.email  %> </p>
+            
+        </div>
+        </div>
+
+        <div class="actividad">
+            <p><strong>USUARIOS</strong></p>
+            <p class="historial"><i class="fa-solid fa-users"></i> <a href="/users/list" class=""> Listado de usuarios</a></p>
+            <p class="historial"><i class="fa-solid fa-users"></i> <a href="users/adminRegister" class=""> Registro de Usuarios</a></p>
+        </div>
+        <div class="sesiones">
+            <p class="sesion"><i class="fa-solid fa-right-from-bracket"></i> <a href="/users/logout">Cerrar sesión</a> </p>
+        </div>
+    </main>
+
+    <!-- include footer -->
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

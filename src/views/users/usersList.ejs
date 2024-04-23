@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- include head -->
+<%- include('../partials/head') %>
+    <body>
+        <!-- include header -->
+        <%- include('../partials/header') %>
+            <main>
+                <p class="rutahome">
+                    <a href="/users/<%= user.id %>/profile">Perfil</a> / Listado Usuarios /
+                </p>
+                <div>
+                    El total de usuarios es de <%= totalUsers.totalUsers %> considerando tanto activos como inactivos.
+                </div>
+                <div class="listadoUsuarios">
+                    <section class="sectionUser">
+                        <h2>Usuarios Activos</h2>
+                        <% if (usersList.length > 0){ %>
+                            <% usersList.forEach(user => { %>
+                                <% if (user.activo == true) { %>
+                                    <div class="user-card">
+                                        <div class="avatar">
+                                            <img src="/images/usuarios/<%= user.imagen %>" alt="" class="avataruser">
+                                        </div>
+                                        <div class="user-info">
+                                            <p><%= user.nombre %> <%= user.apellido %></p>
+                                            <p><%= user.email %></p>
+                                            <p><%= user.direccion %></p>
+                                            <p><%= user.telefono %></p>
+                                            <p>Usuario Activo</p>
+                                        </div>
+                                        <div class="elementos-form-100">
+                                            <div id="form-buttons">  
+                                                <a href="/users/<%= user.id %>/edition" class=""><button type="button" class="">EDITAR</button></a>
+                                            </div>
+                                        </div>  
+                                    </div>    
+                                <% } %>
+                            <% }); %>
+                        <% } else { %>
+                            <p>NO HAY RESULTADOS PARA LA BUSQUEDA</p>
+                        <% } %>
+                    </section>
+
+                    <section class="sectionUser">
+                        <h2>Usuarios Inactivos</h2>
+                        <% if (usersList.length > 0){ %>
+                            <% usersList.forEach(user => { %>
+                                <% if (user.activo == false) { %>
+                                    <div class="user-card">
+                                        <div class="avatar">
+                                        <img src="/images/usuarios/<%= user.imagen %>" alt="" class="avataruser">
+                                        </div>
+                                        <div class="user-info">
+                                            <p><%= user.nombre %> <%= user.apellido %></p>
+                                            <p><%= user.email %></p>
+                                            <p><%= user.direccion %></p>
+                                            <p><%= user.telefono %></p>
+                                            <p>Usuario Inactivo</p>
+                                        </div>
+                                        <div class="elementos-form-100">
+                                            <div id="form-buttons">  
+                                                <a href="/users/<%= user.id %>/edition" class=""><button type="button" class="">EDITAR</button></a>
+                                            </div>
+                                        </div>  
+                                    </div>    
+                                <% } %>
+                            <% }); %>
+                        <% } else { %>
+                            <p>NO HAY RESULTADOS PARA LA BUSQUEDA</p>
+                        <% } %>
+                    </section>
+                </div>
+            </main>
+
+            <!-- include footer -->
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>
