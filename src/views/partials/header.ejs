@@ -1,0 +1,31 @@
+<HTMl>
+    <head>
+        <title>MI PAGINA</title>
+        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="/css/user.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <p> Proyecto Recuperatorio</p>
+            <nav>
+                <% if (!isLogged) {%>
+                <ul>
+                    <li>
+                        <a href="../users/registration">Registrarse</a>
+                        
+                    </li>
+                    <li>
+                       <a href="../users/login">Iniciar Sesion</a>
+                    </li>
+                </ul>
+                <% } else {%>
+                    <ul>
+                        <li>
+                            <a href='/users/<%=userLogged.id%>/profile'>Mi perfil</a> 
+                        </li>
+                    </ul>
+                <% } %>
+            </nav>
+        </header>
+        
+  

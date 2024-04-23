@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- include head -->
+<%- include("../partials/head.ejs") %>
+<script src="/js/loginValidations.js"></script>
+
+
+<body>
+    <!-- include header -->
+    <%- include('../partials/header') %>
+
+    <main class="mainlogin">
+        <p class="rutahome"><a href="/">Home</a> / login</p>
+
+            <form id="formulario-login" action="/users/login" method="POST">
+
+                <% if (locals.authError) {%>
+                    <p class="msjError"> 
+                        Para acceder a la página solicitada primero debes loguearte 
+                    </p>
+                <% } %>
+
+                <label for="email">Email</label> 
+                <input type="email" name="email" id="email" value="<%= locals.old ? old.email : null %>">
+                <small id="error-email" class="msjError"></small>
+                <small id="emailError"></small>
+                
+                <% if (typeof errors != "undefined" && errors.email) {%>
+                    <p class="msjError"> <%= errors.email.msg  %> </p>
+                <% } %>
+                
+                <label for="contrasenia">Contraseña</label> 
+                <input type="password" name="contrasenia" id="contrasenia">
+                <small id="error-contrasenia" class="msjError"></small>  
+                <small id="contraseniaError"></small>              
+
+                <% if (typeof errors != "undefined" && errors.contrasenia) {%>
+                    <p class="msjError"> <%= errors.contrasenia.msg  %> </p>
+                <% } %>
+
+                
+                
+                <div class="opcionrecordarme">
+                    <label for="recordarme">Recordarme</label>
+                    <input type="checkbox" name="recordarme">
+                </div>
+                <br>
+                <button type="submit">INICIAR SESIÓN</button>
+                
+                <p class="notenescuenta">¿No tenés cuenta? <br>
+                <a href="/users/registration"><strong>Crear cuenta</strong></a></p>
+            </form>
+        
+    </main>
+
+    <!-- include footer -->
+    <%- include('../partials/footer') %>
+    
+</body>
